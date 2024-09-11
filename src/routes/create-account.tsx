@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import styled from "styled-components";
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FirebaseError } from "firebase/app";
 
 const Wrapper = styled.div`
@@ -40,6 +40,12 @@ const Input = styled.input`
 const Error = styled.span`
   font-weight: 600;
   color: tomato;
+`;
+const Switcher = styled.span`
+  margin-top: 20px;
+  a {
+    color: #1d9bf0;
+  }
 `;
 
 export default function CreateAccount() {
@@ -122,6 +128,10 @@ export default function CreateAccount() {
         />
       </Form>
       {error !== "" ? <Error>{error}</Error> : null}
+
+      <Switcher>
+        이미 계정이 있으신가요? <Link to="/login">로그인하러 가기 &rarr;</Link>
+      </Switcher>
     </Wrapper>
   );
 }
