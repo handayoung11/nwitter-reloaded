@@ -5,9 +5,5 @@ export default function Home() {
     auth.signOut();
   };
 
-  return (
-    <h1>
-      <button onClick={logout}>logout</button>
-    </h1>
-  );
+  return <h1>Home</h1>;
 }
