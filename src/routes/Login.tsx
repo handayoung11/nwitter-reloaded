@@ -1,6 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import styled from "styled-components";
 import { auth } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { FirebaseError } from "firebase/app";
@@ -71,12 +70,11 @@ export default function Login() {
           required
         />
         <Input type="submit" value={isLoading ? "Loading..." : "로그인"} />
-        <Switcher>
-          계정이 없으신가요?{" "}
-          <Link to="/create-account">계정 만들기 &rarr;</Link>
-        </Switcher>
       </Form>
       {error !== "" ? <Error>{error}</Error> : null}
+      <Switcher>
+        계정이 없으신가요? <Link to="/create-account">계정 만들기 &rarr;</Link>
+      </Switcher>
     </Wrapper>
   );
 }
